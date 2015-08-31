@@ -28,12 +28,6 @@ int main() {
 	return(0);
 }
 
-// converts temperature from Celsius into Fahrenheit
-double conv_Celsius_to_Farenheit(double c) {
-	double f = c * 9 / 5 + 32;
-	return(f);
-}
-
 // converts temperature from Fahrenheit into Celsius
 double conv_Farenheit_to_Celsius(double f) {
 	double c = (f - 32) * 5 / 9;
