@@ -14,9 +14,9 @@ URBAN       1.1    0.3      0.7
 SUBURBAN    0.1    1.2      0.3
 EXURBAN     0.2    0.6      1.3
 */
-const double UtoS = .003, UtoE = .007, // %pop moving from Urban to Sub/Exurban areas
-             StoU = .001, StoE = .003, // %pop moving from Suburban to (Ex)urban areas
-             EtoU = .002, EtoS = .006; // %pop moving from Exurban to (Sub)urban areas
+const double UtoU = .011, UtoS = .003, UtoE = .007, // %pop change in urban areas
+             StoS = .012, StoU = .001, StoE = .003, // %pop change in suburban areas
+             EtoE = .013, EtoU = .002, EtoS = .006; // %pop change in exurban areas
 
 int main()
 {
@@ -26,8 +26,8 @@ int main()
     //User input
     cout << "Enter the number of years to calculate population for: "; cin >> maxYear;
     cout << "Starting Urban Popuation (in Millions): "; cin >> urbanPop;
-    cout << "Starting Suburban Population(in Millions): ";  cin >> suburbanPop;
-    cout << "Starting Exurban Population(in Millions): "; cin >> exurbanPop;
+    cout << "Starting Suburban Population (in Millions): ";  cin >> suburbanPop;
+    cout << "Starting Exurban Population (in Millions): "; cin >> exurbanPop;
     cout << "-----------------------------------------" << endl;
 
     //Scale from millions to ones
@@ -41,15 +41,15 @@ int main()
         double suburbanPop_old = suburbanPop;
         double exurbanPop_old = exurbanPop;
 
-        urbanPop += (suburbanPop_old * StoU) + (exurbanPop_old * EtoU);
+        urbanPop += (urbanPop_old * UtoU) + (suburbanPop_old * StoU) + (exurbanPop_old * EtoU);
         suburbanPop -= suburbanPop_old * StoU;
         exurbanPop -= exurbanPop_old * EtoU;
 
-        suburbanPop += (urbanPop_old * UtoS) + (exurbanPop_old * EtoS);
+        suburbanPop += (suburbanPop_old * StoS) + (urbanPop_old * UtoS) + (exurbanPop_old * EtoS);
         urbanPop -= (urbanPop_old * UtoS);
         exurbanPop -= (exurbanPop_old * EtoS);
 
-        exurbanPop += (urbanPop_old * UtoE) + (suburbanPop_old * StoE);
+        exurbanPop += (exurbanPop_old * EtoE) + (urbanPop_old * UtoE) + (suburbanPop_old * StoE);
         urbanPop -= (urbanPop_old * UtoE);
         suburbanPop -= (suburbanPop_old * StoE);
 
