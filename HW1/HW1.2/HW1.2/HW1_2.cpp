@@ -3,7 +3,7 @@
 * @homework 1.2
 * @author Caleb Gill
 */
-#include <stdint.h>
+#include <cstdint>
 #include <iostream>
 #include <cmath>
 
@@ -20,7 +20,7 @@ const double UtoU = .011, UtoS = .003, UtoE = .007, // %pop change in urban area
 
 int main()
 {
-    uint16_t maxYear;
+    unsigned int maxYear;
 	double urbanPop, suburbanPop, exurbanPop;
 
     //User input
@@ -35,7 +35,7 @@ int main()
     suburbanPop *= pow(10, 6);
     exurbanPop *= pow(10, 6);
 
-    for (int currentYear = 1; currentYear <= maxYear; currentYear++)
+    for (unsigned int currentYear = 1; currentYear <= maxYear; currentYear++)
     {
         double urbanPop_old = urbanPop;
         double suburbanPop_old = suburbanPop;
@@ -62,4 +62,6 @@ int main()
             cout << "-----------------------------------------" << endl;
         }
     }
+    system("pause");
+    return 0;
 }
