@@ -24,30 +24,31 @@ private:
                  StoS = .012, StoU = .001, StoE = .003, // %pop change in suburban areas
                  EtoE = .013, EtoU = .002, EtoS = .006; // %pop change in exurban areas
 public:
+    
     CITY(double urb, double sub, double exu)
+    // sets urban to u, suburban to s, exurban to x, grow to true
     {
         urban = urb;
         suburban = sub;
         exurban = exu;
         grow = true;
     }
-    // TO DO: sets urban to u, suburban to s, exurban to x, grow to true
 
-    bool isAlive() const { (urban || suburban || exurban != 0) ? true : false; }
-    // TO DO: returns true if at least one of the population variables is non-zero
+    // returns true if at least one of the population variables is non-zero
+    bool isAlive() const { return (urban || suburban || exurban != 0) ? true : false; }
 
+    // returns the state of the grow variable
     bool hasBeenGrowing() const { return grow; }
-    // TO DO: returns the state of the grow variable
 
     void ComputeNextYear()
     {
-        // TO DO: 
-        //  1. calculates the new values of urban, suburban and exurban.
-        //     Use constants from the textbook like in homework 1.
+        
+        //  Replaces the old values with the new ones. 
         double urban_old = urban;
         double suburban_old = suburban;
         double exurban_old = exurban;
 
+        //  Calculates the new values of urban, suburban and exurban.
         urban += (urban_old * UtoU) + (suburban_old * StoU) + (exurban_old * EtoU);
         suburban -= suburban_old * StoU;
         exurban -= exurban_old * EtoU;
@@ -59,14 +60,16 @@ public:
         exurban += (exurban_old * EtoE) + (urban_old * UtoE) + (suburban_old * StoE);
         urban -= (urban_old * UtoE);
         suburban -= (suburban_old * StoE);
-        //  2. update the grow variable here by comparing the sum of old 
-        //     with the sum of new populations.
+
+        //  Update the grow variable here by comparing the sum of old 
+        //  with the sum of new populations.
         grow = ((urban_old + suburban_old + exurban_old) <= (urban + suburban + exurban)) ? true : false;      
-        //  3. replaces the old values with the new ones. 
+       
     }
-    void PrintAnnualReport(ostream& out) const;
-    // TO DO: prints the tabelarized population in 3 columns to the provided stream,
-    // each column on EIGHT spaces, do not print end of line!!!
+    void PrintAnnualReport(ostream& out) const
+    {
+        out <<  setw(8) << urban << setw(8) << suburban << setw(8) << exurban;
+    }
 }; /* CITY Class version: 2010F-12S */
 
 
