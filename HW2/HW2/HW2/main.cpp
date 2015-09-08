@@ -25,14 +25,8 @@ private:
                  EtoE = .013, EtoU = .002, EtoS = .006; // %pop change in exurban areas
 public:
     
-    CITY(double urb, double sub, double exu)
+    CITY(double urb, double sub, double exu) : urban(urb), suburban(sub), exurban(exu), grow(true) {};
     // sets urban to u, suburban to s, exurban to x, grow to true
-    {
-        urban = urb;
-        suburban = sub;
-        exurban = exu;
-        grow = true;
-    }
 
     // returns true if at least one of the population variables is non-zero
     bool isAlive() const { return (urban || suburban || exurban != 0) ? true : false; }
@@ -63,12 +57,12 @@ public:
 
         //  Update the grow variable here by comparing the sum of old 
         //  with the sum of new populations.
-        grow = ((urban_old + suburban_old + exurban_old) <= (urban + suburban + exurban)) ? true : false;      
+        grow = ((urban_old + suburban_old + exurban_old) < (urban + suburban + exurban)) ? true : false;      
        
     }
     void PrintAnnualReport(ostream& out) const
     {
-        out <<  setw(8) << urban << setw(8) << suburban << setw(8) << exurban;
+        out << setw(8) << urban << setw(8) << suburban << setw(8) << exurban;
     }
 }; /* CITY Class version: 2010F-12S */
 
