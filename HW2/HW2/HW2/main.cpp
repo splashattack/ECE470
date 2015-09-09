@@ -8,63 +8,9 @@
 */
 #include <iostream>
 #include <iomanip>
+
+#include "city.h"
 using namespace std;
-
-class CITY {
-private:
-    double urban, suburban, exurban;    // current populations
-    bool   grow;                        // true if the total city population grew last year
-
-    /*         URBAN SUBURBAN EXURBAN
-    URBAN       1.1    0.3      0.7
-    SUBURBAN    0.1    1.2      0.3
-    EXURBAN     0.2    0.6      1.3
-    */
-    const double UtoU = .011, UtoS = .003, UtoE = .007, // %pop change in urban areas
-                 StoS = .012, StoU = .001, StoE = .003, // %pop change in suburban areas
-                 EtoE = .013, EtoU = .002, EtoS = .006; // %pop change in exurban areas
-public:
-    
-    CITY(double urb, double sub, double exu) : urban(urb), suburban(sub), exurban(exu), grow(true) {};
-    // sets urban to u, suburban to s, exurban to x, grow to true
-
-    // returns true if at least one of the population variables is non-zero
-    bool isAlive() const { return (urban || suburban || exurban != 0) ? true : false; }
-
-    // returns the state of the grow variable
-    bool hasBeenGrowing() const { return grow; }
-
-    void ComputeNextYear()
-    {
-        
-        //  Replaces the old values with the new ones. 
-        double urban_old = urban;
-        double suburban_old = suburban;
-        double exurban_old = exurban;
-
-        //  Calculates the new values of urban, suburban and exurban.
-        urban += (urban_old * UtoU) + (suburban_old * StoU) + (exurban_old * EtoU);
-        suburban -= suburban_old * StoU;
-        exurban -= exurban_old * EtoU;
-
-        suburban += (suburban_old * StoS) + (urban_old * UtoS) + (exurban_old * EtoS);
-        urban -= (urban_old * UtoS);
-        exurban -= (exurban_old * EtoS);
-
-        exurban += (exurban_old * EtoE) + (urban_old * UtoE) + (suburban_old * StoE);
-        urban -= (urban_old * UtoE);
-        suburban -= (suburban_old * StoE);
-
-        //  Update the grow variable here by comparing the sum of old 
-        //  with the sum of new populations.
-        grow = ((urban_old + suburban_old + exurban_old) < (urban + suburban + exurban)) ? true : false;      
-       
-    }
-    void PrintAnnualReport(ostream& out) const
-    {
-        out << setw(8) << urban << setw(8) << suburban << setw(8) << exurban;
-    }
-}; /* CITY Class version: 2010F-12S */
 
 
 
