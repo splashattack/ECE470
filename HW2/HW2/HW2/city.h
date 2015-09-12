@@ -16,8 +16,8 @@ private:
                                         EXURBAN     0.2    0.6      1.3
                                         */
     double UtoU, UtoS, UtoE, // %pop change in urban areas
-                  StoS, StoU, StoE, // %pop change in suburban areas
-                  EtoE, EtoU, EtoS; // %pop change in exurban areas
+           StoS, StoU, StoE, // %pop change in suburban areas
+           EtoE, EtoU, EtoS; // %pop change in exurban areas
 public:
 
     CITY(double urb, double sub, double exu);
