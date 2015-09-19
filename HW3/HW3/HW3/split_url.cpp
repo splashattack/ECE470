@@ -27,10 +27,12 @@ void SplitURL(const string &url, string &type, string &host, string &page)
     }
 
     //HOST
-    if (url.substr(currentPos).find("/") != string::npos)
+    if (url.find("/", currentPos) != string::npos)
     {
-        host = url.substr(currentPos, url.substr(currentPos).find("/")); // extracts all text until next "/" char to get host
-        currentPos = currentPos + url.substr(currentPos).find("/"); //update pos in string
+        cout << "Found /" << endl;
+
+        host = url.substr(currentPos, url.find("/",currentPos) - currentPos); // extracts all text until next "/" char to get host
+        currentPos = url.find("/", currentPos); //update pos in string
     }
     else
     {
