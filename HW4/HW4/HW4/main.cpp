@@ -1,7 +1,7 @@
 ///
 ///\file main.cpp
 ///\author Caleb Gill
-///\brief This is a brief discription
+///\brief ECE470, HW 4
 ///
 #include <iostream>
 #include <fstream>
@@ -24,7 +24,7 @@ struct file
 
 void parseFile(file &infile);
 void parseLine(string currentLine, size_t currentLineNumber, vector<double> &legLength, vector<int> &legCourse);
-void writeToOutput(file &outfile);
+void writeToOutput(file &outfile, string name);
 
 double feetToMiles(double value) { return value / 5280; }
 
@@ -34,10 +34,12 @@ int main()
     file File;
     cout << "Please enter the name of the file you would like to parse." << endl;
     cin >> File.name;
+    
+
     File.instream.open(File.name);
     parseFile(File);
-    writeToOutput(File);
     File.instream.close();
+    writeToOutput(File, File.name.substr(0, File.name.find(".txt"))  + "_ouput.txt"); // remove .txt from file name and append _output.txt
 }
 
 
@@ -82,7 +84,7 @@ void parseLine(string currentLine, size_t currentLineNumber, vector<double> &leg
             {
                 legLength_unit = "mi";
                 size_t legLengthEndPos = currentLine.find(" m");
-                size_t legLengthBeginPos = currentLine.rfind(" ", legLengthEndPos) - 1;
+                size_t legLengthBeginPos = currentLine.rfind(" ", legLengthEndPos - 1);
                 legLength_value = stod(currentLine.substr(legLengthBeginPos, legLengthEndPos - legLengthBeginPos));
             }
             else
@@ -129,32 +131,33 @@ void parseLine(string currentLine, size_t currentLineNumber, vector<double> &leg
 }
 
 
-void writeToOutput(file &outfile)
+void writeToOutput(file &outfile, string name)
 {
-    outfile.outstream.open("Data_Output.txt");
-    double legLength_sum = 0;
+    
+    outfile.outstream.open(name);
+    outfile.outstream << name << endl << endl
+                      << "Leg Length, Leg Course" << endl;
+
     outfile.legCourse.push_back(0); // append 0 at end of file to avoid indexing error.
-    for (size_t iter = 0; iter < outfile.legLength.size() - 1; iter++)
+
+    double legLength_sum = 0;
+    for (size_t iter = 0; iter < outfile.legCourse.size() - 1; iter++)
     {
+        legLength_sum += outfile.legLength[iter];
+
         if (outfile.legCourse[iter + 1] != outfile.legCourse[iter])
         {
             
-            if (legLength_sum > 0)
+            if (legLength_sum > outfile.legLength[iter])
             {
                 // Now that the course has changed, we can output the previously added values
                 outfile.outstream << legLength_sum << setprecision(4) << setw(8) << outfile.legCourse[iter] << setw(8) << endl;
-                legLength_sum = 0;
             }
             else
             {
                 outfile.outstream << outfile.legLength[iter] << setprecision(4) << setw(8) << outfile.legCourse[iter] << setw(8) << endl;
-                //reset running sum
-                legLength_sum = outfile.legLength[iter];
             }
-        }
-        else
-        {
-            legLength_sum += outfile.legLength[iter];
+            legLength_sum = 0;
         }
     }
     outfile.outstream.close();
