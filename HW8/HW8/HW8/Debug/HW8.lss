@@ -1,0 +1,522 @@
+
+HW8.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000e  00800100  000002a4  00000338  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000002a4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000002  0080010e  0080010e  00000346  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000346  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000d0  00000000  00000000  00000376  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001549  00000000  00000000  00000446  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000007df  00000000  00000000  0000198f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000563  00000000  00000000  0000216e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000164  00000000  00000000  000026d4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000004fb  00000000  00000000  00002838  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000452  00000000  00000000  00002d33  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000090  00000000  00000000  00003185  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	60 c0       	rjmp	.+192    	; 0xc6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	5e c0       	rjmp	.+188    	; 0xc6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	5c c0       	rjmp	.+184    	; 0xc6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	5a c0       	rjmp	.+180    	; 0xc6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	58 c0       	rjmp	.+176    	; 0xc6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	56 c0       	rjmp	.+172    	; 0xc6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	54 c0       	rjmp	.+168    	; 0xc6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	52 c0       	rjmp	.+164    	; 0xc6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	50 c0       	rjmp	.+160    	; 0xc6 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	4e c0       	rjmp	.+156    	; 0xc6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	4c c0       	rjmp	.+152    	; 0xc6 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	4a c0       	rjmp	.+148    	; 0xc6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	48 c0       	rjmp	.+144    	; 0xc6 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	46 c0       	rjmp	.+140    	; 0xc6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	44 c0       	rjmp	.+136    	; 0xc6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	42 c0       	rjmp	.+132    	; 0xc6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	40 c0       	rjmp	.+128    	; 0xc6 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	3e c0       	rjmp	.+124    	; 0xc6 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	3c c0       	rjmp	.+120    	; 0xc6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	3a c0       	rjmp	.+116    	; 0xc6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	38 c0       	rjmp	.+112    	; 0xc6 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	36 c0       	rjmp	.+108    	; 0xc6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	34 c0       	rjmp	.+104    	; 0xc6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	32 c0       	rjmp	.+100    	; 0xc6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	30 c0       	rjmp	.+96     	; 0xc6 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	2e c0       	rjmp	.+92     	; 0xc6 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	2c c0       	rjmp	.+88     	; 0xc6 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	2a c0       	rjmp	.+84     	; 0xc6 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	28 c0       	rjmp	.+80     	; 0xc6 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	26 c0       	rjmp	.+76     	; 0xc6 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	24 c0       	rjmp	.+72     	; 0xc6 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	22 c0       	rjmp	.+68     	; 0xc6 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	20 c0       	rjmp	.+64     	; 0xc6 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	1e c0       	rjmp	.+60     	; 0xc6 <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e4 ea       	ldi	r30, 0xA4	; 164
+  a0:	f2 e0       	ldi	r31, 0x02	; 2
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	ae 30       	cpi	r26, 0x0E	; 14
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	ae e0       	ldi	r26, 0x0E	; 14
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a0 31       	cpi	r26, 0x10	; 16
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	27 d0       	rcall	.+78     	; 0x112 <main>
+  c4:	ed c0       	rjmp	.+474    	; 0x2a0 <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
+
+000000c8 <_ZN8MenuKeysC1Ev>:
+    --use_count;
+    if (use_count==0)
+    {
+        // to be safe and low power set the upper nibble back to input and shut off pull up resistors
+        DDRE &= 0x0F;
+        PORTE&= 0x0F;
+  c8:	80 91 0e 01 	lds	r24, 0x010E
+  cc:	81 11       	cpse	r24, r1
+  ce:	06 c0       	rjmp	.+12     	; 0xdc <_ZN8MenuKeysC1Ev+0x14>
+  d0:	82 b1       	in	r24, 0x02	; 2
+  d2:	8f 70       	andi	r24, 0x0F	; 15
+  d4:	82 b9       	out	0x02, r24	; 2
+  d6:	83 b1       	in	r24, 0x03	; 3
+  d8:	80 6f       	ori	r24, 0xF0	; 240
+  da:	83 b9       	out	0x03, r24	; 3
+  dc:	80 91 0e 01 	lds	r24, 0x010E
+  e0:	8f 5f       	subi	r24, 0xFF	; 255
+  e2:	80 93 0e 01 	sts	0x010E, r24
+  e6:	08 95       	ret
+
+000000e8 <_ZNK8MenuKeys3getEv>:
+    }         
+}
+
+uint8_t MenuKeys::get (void) const
+{
+    return( ((uint8_t)(~PINE))>>4 );
+  e8:	81 b1       	in	r24, 0x01	; 1
+  ea:	80 95       	com	r24
+        //   ^^^^^^^^   typecasting to make sure that this >> is done on an unsigned data type
+        //              so that 0s are introduced to the left and & 0x0F step can be skipped
+}
+  ec:	82 95       	swap	r24
+  ee:	8f 70       	andi	r24, 0x0F	; 15
+  f0:	08 95       	ret
+
+000000f2 <_ZN4LEDsC1Ev>:
+    --use_count;
+    if (use_count==0)
+    {
+        // to be safe and low power set the upper nibble back to input and shut off pull up resistors
+        DDRA = 0;
+        PINA = 0;
+  f2:	80 91 0f 01 	lds	r24, 0x010F
+  f6:	81 11       	cpse	r24, r1
+  f8:	02 c0       	rjmp	.+4      	; 0xfe <_ZN4LEDsC1Ev+0xc>
+  fa:	8f ef       	ldi	r24, 0xFF	; 255
+  fc:	8a bb       	out	0x1a, r24	; 26
+  fe:	80 91 0f 01 	lds	r24, 0x010F
+ 102:	8f 5f       	subi	r24, 0xFF	; 255
+ 104:	80 93 0f 01 	sts	0x010F, r24
+ 108:	08 95       	ret
+
+0000010a <_ZNK4LEDs3getEv>:
+
+uint8_t LEDs::get (void) const
+{
+    // no need for delay after writing to PORTA 
+    // as it takes time to call the function
+    return( PINA );
+ 10a:	89 b3       	in	r24, 0x19	; 25
+}
+ 10c:	08 95       	ret
+
+0000010e <_ZN4LEDs3setEh>:
+
+void LEDs::set ( uint8_t val )
+{
+    PORTA = val;
+ 10e:	6b bb       	out	0x1b, r22	; 27
+ 110:	08 95       	ret
+
+00000112 <main>:
+
+#include "lib_buttons.h"
+
+
+int main(void)
+{
+ 112:	cf 93       	push	r28
+ 114:	df 93       	push	r29
+ 116:	cd b7       	in	r28, 0x3d	; 61
+ 118:	de b7       	in	r29, 0x3e	; 62
+ 11a:	a6 97       	sbiw	r28, 0x26	; 38
+ 11c:	0f b6       	in	r0, 0x3f	; 63
+ 11e:	f8 94       	cli
+ 120:	de bf       	out	0x3e, r29	; 62
+ 122:	0f be       	out	0x3f, r0	; 63
+ 124:	cd bf       	out	0x3d, r28	; 61
+    // INITIALIZATION
+    MenuKeys Keys;
+ 126:	ce 01       	movw	r24, r28
+ 128:	86 96       	adiw	r24, 0x26	; 38
+ 12a:	ce df       	rcall	.-100    	; 0xc8 <_ZN8MenuKeysC1Ev>
+    LEDs     disp;
+ 12c:	ce 01       	movw	r24, r28
+ 12e:	85 96       	adiw	r24, 0x25	; 37
+ 130:	e0 df       	rcall	.-64     	; 0xf2 <_ZN4LEDsC1Ev>
+ 132:	ce 01       	movw	r24, r28
+ 134:	0a 96       	adiw	r24, 0x0a	; 10
+ 136:	9e 01       	movw	r18, r28
+ 138:	2f 5f       	subi	r18, 0xFF	; 255
+ 13a:	3f 4f       	sbci	r19, 0xFF	; 255
+ 13c:	3e 01       	movw	r6, r28
+ 13e:	45 e2       	ldi	r20, 0x25	; 37
+ 140:	64 0e       	add	r6, r20
+ 142:	71 1c       	adc	r7, r1
+ 144:	f9 01       	movw	r30, r18
+	AutorepeaterFilter Autorepeater;
+};
+
+class DebouncedAutoRepeatPushButton : public AutoRepeatPushButton {
+	public:
+	DebouncedAutoRepeatPushButton(bool inistate = false) : AutoRepeatPushButton(inistate), debouncer(inistate) {}
+ 146:	6c e0       	ldi	r22, 0x0C	; 12
+ 148:	71 e0       	ldi	r23, 0x01	; 1
+ 14a:	dc 01       	movw	r26, r24
+ 14c:	17 97       	sbiw	r26, 0x07	; 7
+	// Note: value reduced to 8 for easy testing in MS Visual Studio
+};
+
+class PushButton {
+	public:
+	PushButton(bool inistate = false) : state(inistate) {}
+ 14e:	1c 92       	st	X, r1
+ 150:	11 96       	adiw	r26, 0x01	; 1
+	bool    state;
+};
+
+class TogglePushButton : public PushButton {
+	public:
+	TogglePushButton(bool inistate = false) : PushButton(inistate), recentinput(inistate) {}
+ 152:	1c 92       	st	X, r1
+ 154:	8f 01       	movw	r16, r30
+ 156:	02 1b       	sub	r16, r18
+ 158:	13 0b       	sbc	r17, r19
+ 15a:	45 e0       	ldi	r20, 0x05	; 5
+ 15c:	50 e0       	ldi	r21, 0x00	; 0
+ 15e:	4c 0f       	add	r20, r28
+ 160:	5d 1f       	adc	r21, r29
+ 162:	40 0f       	add	r20, r16
+ 164:	51 1f       	adc	r21, r17
+	const static uint8_t threshold = 4; // warning: hardware specific
+};
+
+class AutorepeaterFilter {
+	public:
+	AutorepeaterFilter(bool inistate = false) : state(inistate), count_on(0) {}
+ 166:	da 01       	movw	r26, r20
+ 168:	1c 92       	st	X, r1
+ 16a:	11 96       	adiw	r26, 0x01	; 1
+ 16c:	1c 92       	st	X, r1
+	AutorepeaterFilter Autorepeater;
+};
+
+class DebouncedAutoRepeatPushButton : public AutoRepeatPushButton {
+	public:
+	DebouncedAutoRepeatPushButton(bool inistate = false) : AutoRepeatPushButton(inistate), debouncer(inistate) {}
+ 16e:	71 83       	std	Z+1, r23	; 0x01
+ 170:	60 83       	st	Z, r22
+ 172:	a7 e0       	ldi	r26, 0x07	; 7
+ 174:	b0 e0       	ldi	r27, 0x00	; 0
+ 176:	ac 0f       	add	r26, r28
+ 178:	bd 1f       	adc	r27, r29
+ 17a:	a0 0f       	add	r26, r16
+ 17c:	b1 1f       	adc	r27, r17
+#include <stdint.h>
+
+class DebounceFilter {
+	public:
+	DebounceFilter(bool inistate = false) : state(inistate), count_off(0), count_on(0) {}
+ 17e:	1c 92       	st	X, r1
+ 180:	11 96       	adiw	r26, 0x01	; 1
+ 182:	1c 92       	st	X, r1
+ 184:	11 97       	sbiw	r26, 0x01	; 1
+ 186:	12 96       	adiw	r26, 0x02	; 2
+ 188:	1c 92       	st	X, r1
+ 18a:	09 96       	adiw	r24, 0x09	; 9
+ 18c:	39 96       	adiw	r30, 0x09	; 9
+
+    DebouncedAutoRepeatPushButton buttons[4];
+ 18e:	e6 15       	cp	r30, r6
+ 190:	f7 05       	cpc	r31, r7
+ 192:	d9 f6       	brne	.-74     	; 0x14a <main+0x38>
+ 194:	41 2c       	mov	r4, r1
+ 196:	51 2c       	mov	r5, r1
+    uint16_t cnt = 0;
+    // MAIN SUPERLOOP
+    while(1)
+    {
+        for (uint8_t i=0; i<4; ++i) {
+            buttons[i].update( 0!= (Keys.get() & keymask[i]) );
+ 198:	33 24       	eor	r3, r3
+ 19a:	33 94       	inc	r3
+ 19c:	8e 01       	movw	r16, r28
+ 19e:	0f 5f       	subi	r16, 0xFF	; 255
+ 1a0:	1f 4f       	sbci	r17, 0xFF	; 255
+ 1a2:	0f 2e       	mov	r0, r31
+ 1a4:	f4 e0       	ldi	r31, 0x04	; 4
+ 1a6:	af 2e       	mov	r10, r31
+ 1a8:	f1 e0       	ldi	r31, 0x01	; 1
+ 1aa:	bf 2e       	mov	r11, r31
+ 1ac:	f0 2d       	mov	r31, r0
+ 1ae:	0f 2e       	mov	r0, r31
+ 1b0:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b2:	ef 2e       	mov	r14, r31
+ 1b4:	f1 e0       	ldi	r31, 0x01	; 1
+ 1b6:	ff 2e       	mov	r15, r31
+ 1b8:	f0 2d       	mov	r31, r0
+ 1ba:	68 01       	movw	r12, r16
+ 1bc:	d8 01       	movw	r26, r16
+ 1be:	ed 91       	ld	r30, X+
+ 1c0:	fc 91       	ld	r31, X
+ 1c2:	80 80       	ld	r8, Z
+ 1c4:	91 80       	ldd	r9, Z+1	; 0x01
+ 1c6:	ce 01       	movw	r24, r28
+ 1c8:	86 96       	adiw	r24, 0x26	; 38
+ 1ca:	8e df       	rcall	.-228    	; 0xe8 <_ZNK8MenuKeys3getEv>
+ 1cc:	f5 01       	movw	r30, r10
+ 1ce:	91 91       	ld	r25, Z+
+ 1d0:	5f 01       	movw	r10, r30
+ 1d2:	89 23       	and	r24, r25
+ 1d4:	63 2d       	mov	r22, r3
+ 1d6:	09 f4       	brne	.+2      	; 0x1da <main+0xc8>
+ 1d8:	60 e0       	ldi	r22, 0x00	; 0
+ 1da:	c6 01       	movw	r24, r12
+ 1dc:	f4 01       	movw	r30, r8
+ 1de:	09 95       	icall
+            if ( buttons[i].getState() )  disp.set( disp.get() | ledmask[i] );
+ 1e0:	d6 01       	movw	r26, r12
+ 1e2:	12 96       	adiw	r26, 0x02	; 2
+ 1e4:	8c 91       	ld	r24, X
+ 1e6:	88 23       	and	r24, r24
+ 1e8:	51 f0       	breq	.+20     	; 0x1fe <main+0xec>
+ 1ea:	ce 01       	movw	r24, r28
+ 1ec:	85 96       	adiw	r24, 0x25	; 37
+ 1ee:	8d df       	rcall	.-230    	; 0x10a <_ZNK4LEDs3getEv>
+ 1f0:	f7 01       	movw	r30, r14
+ 1f2:	60 81       	ld	r22, Z
+ 1f4:	68 2b       	or	r22, r24
+ 1f6:	ce 01       	movw	r24, r28
+ 1f8:	85 96       	adiw	r24, 0x25	; 37
+ 1fa:	89 df       	rcall	.-238    	; 0x10e <_ZN4LEDs3setEh>
+ 1fc:	0a c0       	rjmp	.+20     	; 0x212 <main+0x100>
+            else                          disp.set( disp.get() & ~(ledmask[i]) );
+ 1fe:	ce 01       	movw	r24, r28
+ 200:	85 96       	adiw	r24, 0x25	; 37
+ 202:	83 df       	rcall	.-250    	; 0x10a <_ZNK4LEDs3getEv>
+ 204:	d7 01       	movw	r26, r14
+ 206:	6c 91       	ld	r22, X
+ 208:	60 95       	com	r22
+ 20a:	68 23       	and	r22, r24
+ 20c:	ce 01       	movw	r24, r28
+ 20e:	85 96       	adiw	r24, 0x25	; 37
+ 210:	7e df       	rcall	.-260    	; 0x10e <_ZN4LEDs3setEh>
+ 212:	07 5f       	subi	r16, 0xF7	; 247
+ 214:	1f 4f       	sbci	r17, 0xFF	; 255
+ 216:	bf ef       	ldi	r27, 0xFF	; 255
+ 218:	eb 1a       	sub	r14, r27
+ 21a:	fb 0a       	sbc	r15, r27
+
+    uint16_t cnt = 0;
+    // MAIN SUPERLOOP
+    while(1)
+    {
+        for (uint8_t i=0; i<4; ++i) {
+ 21c:	06 15       	cp	r16, r6
+ 21e:	17 05       	cpc	r17, r7
+ 220:	61 f6       	brne	.-104    	; 0x1ba <main+0xa8>
+            buttons[i].update( 0!= (Keys.get() & keymask[i]) );
+            if ( buttons[i].getState() )  disp.set( disp.get() | ledmask[i] );
+            else                          disp.set( disp.get() & ~(ledmask[i]) );
+        }
+
+        if (0==cnt) {
+ 222:	41 14       	cp	r4, r1
+ 224:	51 04       	cpc	r5, r1
+ 226:	69 f4       	brne	.+26     	; 0x242 <main+0x130>
+            cnt=16384;
+            disp.set( disp.get() ^ 0x80);
+ 228:	ce 01       	movw	r24, r28
+ 22a:	85 96       	adiw	r24, 0x25	; 37
+ 22c:	6e df       	rcall	.-292    	; 0x10a <_ZNK4LEDs3getEv>
+ 22e:	60 e8       	ldi	r22, 0x80	; 128
+ 230:	68 0f       	add	r22, r24
+ 232:	ce 01       	movw	r24, r28
+ 234:	85 96       	adiw	r24, 0x25	; 37
+ 236:	6b df       	rcall	.-298    	; 0x10e <_ZN4LEDs3setEh>
+            if ( buttons[i].getState() )  disp.set( disp.get() | ledmask[i] );
+            else                          disp.set( disp.get() & ~(ledmask[i]) );
+        }
+
+        if (0==cnt) {
+            cnt=16384;
+ 238:	41 2c       	mov	r4, r1
+ 23a:	68 94       	set
+ 23c:	55 24       	eor	r5, r5
+ 23e:	56 f8       	bld	r5, 6
+ 240:	ad cf       	rjmp	.-166    	; 0x19c <main+0x8a>
+            disp.set( disp.get() ^ 0x80);
+        } else cnt--;
+ 242:	e1 e0       	ldi	r30, 0x01	; 1
+ 244:	4e 1a       	sub	r4, r30
+ 246:	51 08       	sbc	r5, r1
+ 248:	a9 cf       	rjmp	.-174    	; 0x19c <main+0x8a>
+
+0000024a <_ZN16TogglePushButton6updateEb>:
+
+//* DebouncedTogglePushButton *
+void DebouncedTogglePushButton::update(bool pressed) {
+    debouncer.update(pressed);
+    TogglePushButton::update(debouncer.getState());
+}
+ 24a:	fc 01       	movw	r30, r24
+ 24c:	83 81       	ldd	r24, Z+3	; 0x03
+ 24e:	86 17       	cp	r24, r22
+ 250:	31 f0       	breq	.+12     	; 0x25e <_ZN16TogglePushButton6updateEb+0x14>
+ 252:	66 23       	and	r22, r22
+ 254:	21 f0       	breq	.+8      	; 0x25e <_ZN16TogglePushButton6updateEb+0x14>
+ 256:	92 81       	ldd	r25, Z+2	; 0x02
+ 258:	81 e0       	ldi	r24, 0x01	; 1
+ 25a:	89 27       	eor	r24, r25
+ 25c:	82 83       	std	Z+2, r24	; 0x02
+ 25e:	63 83       	std	Z+3, r22	; 0x03
+ 260:	08 95       	ret
+
+00000262 <_ZN14DebounceFilter6updateEb>:
+ 262:	fc 01       	movw	r30, r24
+ 264:	66 23       	and	r22, r22
+ 266:	49 f0       	breq	.+18     	; 0x27a <_ZN14DebounceFilter6updateEb+0x18>
+ 268:	82 81       	ldd	r24, Z+2	; 0x02
+ 26a:	8f 5f       	subi	r24, 0xFF	; 255
+ 26c:	82 83       	std	Z+2, r24	; 0x02
+ 26e:	85 30       	cpi	r24, 0x05	; 5
+ 270:	58 f0       	brcs	.+22     	; 0x288 <_ZN14DebounceFilter6updateEb+0x26>
+ 272:	11 82       	std	Z+1, r1	; 0x01
+ 274:	81 e0       	ldi	r24, 0x01	; 1
+ 276:	80 83       	st	Z, r24
+ 278:	08 95       	ret
+ 27a:	81 81       	ldd	r24, Z+1	; 0x01
+ 27c:	8f 5f       	subi	r24, 0xFF	; 255
+ 27e:	81 83       	std	Z+1, r24	; 0x01
+ 280:	85 30       	cpi	r24, 0x05	; 5
+ 282:	10 f0       	brcs	.+4      	; 0x288 <_ZN14DebounceFilter6updateEb+0x26>
+ 284:	12 82       	std	Z+2, r1	; 0x02
+ 286:	10 82       	st	Z, r1
+ 288:	08 95       	ret
+
+0000028a <_ZN29DebouncedAutoRepeatPushButton6updateEb>:
+    Autorepeater.update(pressed);
+    TogglePushButton::update(Autorepeater.getState());
+}
+
+//* DebouncedAutoRepeatPushButton *
+void DebouncedAutoRepeatPushButton::update(bool pressed) {
+ 28a:	cf 93       	push	r28
+ 28c:	df 93       	push	r29
+ 28e:	ec 01       	movw	r28, r24
+    debouncer.update(pressed);
+ 290:	06 96       	adiw	r24, 0x06	; 6
+ 292:	e7 df       	rcall	.-50     	; 0x262 <_ZN14DebounceFilter6updateEb>
+    TogglePushButton::update(debouncer.getState());
+ 294:	6e 81       	ldd	r22, Y+6	; 0x06
+ 296:	ce 01       	movw	r24, r28
+ 298:	d8 df       	rcall	.-80     	; 0x24a <_ZN16TogglePushButton6updateEb>
+}
+ 29a:	df 91       	pop	r29
+ 29c:	cf 91       	pop	r28
+ 29e:	08 95       	ret
+
+000002a0 <_exit>:
+ 2a0:	f8 94       	cli
+
+000002a2 <__stop_program>:
+ 2a2:	ff cf       	rjmp	.-2      	; 0x2a2 <__stop_program>
