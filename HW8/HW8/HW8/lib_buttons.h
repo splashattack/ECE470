@@ -9,7 +9,7 @@ class DebounceFilter {
 	bool    state;
 	uint8_t count_off;
 	uint8_t count_on;
-	const static uint8_t threshold = 4; // warning: hardware specific
+	const static uint8_t threshold = 64; // warning: hardware specific
 };
 
 class AutorepeaterFilter {
@@ -19,8 +19,8 @@ class AutorepeaterFilter {
 	bool    getState() const { return(state); }
 	private:
 	bool    state;
-	uint8_t count_on;
-	const static uint8_t threshold = 8; // warning: sampling rate specific
+	uint16_t count_on;
+	const static uint16_t threshold = 16384; // warning: sampling rate specific
 	// Note: value reduced to 8 for easy testing in MS Visual Studio
 };
 

@@ -32,7 +32,7 @@ Discarded input sections
  .text._ZN25DebouncedTogglePushButton6updateEb
                 0x00000000       0x1a lib_buttons.o
  .text._ZN18AutorepeaterFilter6updateEb
-                0x00000000       0x22 lib_buttons.o
+                0x00000000       0x2e lib_buttons.o
  .text._ZN20AutoRepeatPushButton6updateEb
                 0x00000000       0x1a lib_buttons.o
  .rodata._ZTV16TogglePushButton
@@ -208,7 +208,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x2a4
+.text           0x00000000      0x2a8
  *(.vectors)
  .vectors       0x00000000       0x8c c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1056/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128.o
                 0x00000000                __vector_default
@@ -319,22 +319,22 @@ END GROUP
  .text._ZN4LEDs3setEh
                 0x0000010e        0x4 bios_led8.o
                 0x0000010e                _ZN4LEDs3setEh
- .text.main     0x00000112      0x138 HW8.o
+ .text.main     0x00000112      0x13c HW8.o
                 0x00000112                main
  .text._ZN16TogglePushButton6updateEb
-                0x0000024a       0x18 lib_buttons.o
-                0x0000024a                _ZN16TogglePushButton6updateEb
+                0x0000024e       0x18 lib_buttons.o
+                0x0000024e                _ZN16TogglePushButton6updateEb
  .text._ZN14DebounceFilter6updateEb
-                0x00000262       0x28 lib_buttons.o
-                0x00000262                _ZN14DebounceFilter6updateEb
+                0x00000266       0x28 lib_buttons.o
+                0x00000266                _ZN14DebounceFilter6updateEb
  .text._ZN29DebouncedAutoRepeatPushButton6updateEb
-                0x0000028a       0x16 lib_buttons.o
-                0x0000028a                _ZN29DebouncedAutoRepeatPushButton6updateEb
-                0x000002a0                . = ALIGN (0x2)
+                0x0000028e       0x16 lib_buttons.o
+                0x0000028e                _ZN29DebouncedAutoRepeatPushButton6updateEb
+                0x000002a4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000002a0        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1056/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
-                0x000002a0                _exit
-                0x000002a0                exit
+ .fini9         0x000002a4        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1056/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                0x000002a4                _exit
+                0x000002a4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -353,11 +353,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000002a0        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1056/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x000002a4        0x4 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1056/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x000002a4                _etext = .
+                0x000002a8                _etext = .
 
-.data           0x00800100        0xe load address 0x000002a4
+.data           0x00800100        0xe load address 0x000002a8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1056/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm128.o
@@ -395,8 +395,8 @@ END GROUP
                 0x0080010f                _ZN4LEDs9use_countE
  *(COMMON)
                 0x00800110                PROVIDE (__bss_end, .)
-                0x000002a4                __data_load_start = LOADADDR (.data)
-                0x000002b2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000002a8                __data_load_start = LOADADDR (.data)
+                0x000002b6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800110        0x0
                 0x00800110                PROVIDE (__noinit_start, .)
@@ -479,19 +479,19 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1549
+.debug_info     0x00000000     0x1560
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x249 bios_key4.o
  .debug_info    0x00000249      0x2de bios_led8.o
- .debug_info    0x00000527      0x91c HW8.o
- .debug_info    0x00000e43      0x706 lib_buttons.o
+ .debug_info    0x00000527      0x922 HW8.o
+ .debug_info    0x00000e49      0x717 lib_buttons.o
 
-.debug_abbrev   0x00000000      0x7df
+.debug_abbrev   0x00000000      0x809
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x15e bios_key4.o
  .debug_abbrev  0x0000015e      0x1a3 bios_led8.o
- .debug_abbrev  0x00000301      0x2da HW8.o
- .debug_abbrev  0x000005db      0x204 lib_buttons.o
+ .debug_abbrev  0x00000301      0x2ef HW8.o
+ .debug_abbrev  0x000005f0      0x219 lib_buttons.o
 
 .debug_line     0x00000000      0x563
  *(.debug_line .debug_line.* .debug_line_end)
@@ -516,7 +516,7 @@ END GROUP
  .debug_str     0x00000277      0x194 HW8.o
                                 0x3f1 (size before relaxing)
  .debug_str     0x0000040b       0xf0 lib_buttons.o
-                                0x3cd (size before relaxing)
+                                0x3d6 (size before relaxing)
 
 .debug_loc      0x00000000      0x452
  *(.debug_loc)
