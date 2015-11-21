@@ -10,6 +10,7 @@
 #define _RotaryBuffer
 
 #include <cstddef>
+#include <cmath>
 
 template <typename T, std::size_t nLongAv, std::size_t nShortAv>
 class RotaryBuffer
@@ -19,11 +20,11 @@ public:
 
     bool        empty() const { return(mySize == 0); }
 
-    void        store(const T & value); // TO DO store (push) a new item, forget the oldest if necessary
-    void        clear();                // TO DO discard all (pop all) data quickly
-    bool        ready() const;          // TO DO check if at least myShortCapacity elements are held
-    T           ShortAverage() const;   // TO DO average the last myShortCapacity elements
-    T           LongAverage()  const;   // TO DO average all RotaryBuffer elements
+    void        store(const T & value); //store (push) a new item, forget the oldest if necessary
+    void        clear();                //discard all (pop all) data quickly
+    bool        ready() const;          //check if at least myShortCapacity elements are held
+    T           ShortAverage() const;   //average the last myShortCapacity elements
+    T           LongAverage()  const;   //average all RotaryBuffer elements
 private:
     static const std::size_t myCapacity = nLongAv;
     static const std::size_t myShortCapacity = nShortAv;
@@ -60,13 +61,31 @@ bool RotaryBuffer<T, nLongAv, nShortAv>::ready() const
 template <typename T, std::size_t nLongAv, std::size_t nShortAv>
 T RotaryBuffer<T, nLongAv, nShortAv>::ShortAverage() const
 {
-    T sum = 0;
-    size_t maxIter = mySize > myShortCapacity ? myShortCapacity : mySize;
-    for (size_t iter = 0; iter < maxIter; iter++)
+    if (this->ready())
     {
-        sum += myArray[iter];
+        T sum = 0;
+
+        size_t pos = (myBack==0) ? mySize - 1 : myBack - 1;
+        
+        for (size_t iter = myShortCapacity; iter > 0; iter--)
+        {
+            sum += myArray[pos];
+            if (pos == 0)
+            {
+                pos = mySize - 1;
+            }
+            else
+            {
+                pos--;
+            }
+        }
+        
+        return sum / myShortCapacity;
     }
-    return sum / maxIter;
+    else
+    {
+        cout << "Cannot compute short average; the buffer is not ready yet!" << endl;
+    }
 }
 
 template <typename T, std::size_t nLongAv, std::size_t nShortAv>
