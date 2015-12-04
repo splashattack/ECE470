@@ -69,7 +69,7 @@ public:
     iterator    operator ++ (int);
     const iterator&   operator -- ()
     {
-        HOMEWORK ASSIGNMENT
+        currentLink = currentLink->prevLink; return *this;
     }
     iterator    operator -- (int);
 
@@ -95,7 +95,7 @@ listIterator<ElementType> listIterator<ElementType>::operator -- (int)
 {
     // clone, then increment, return clone
     listIterator clone(currentLink);
-    HOMEWORK ASSIGNMENT
+    currentLink = currentLink->prevLink;
         return clone;
 }
 
@@ -136,7 +136,7 @@ public:
     const_iterator  operator ++ (int);
     const const_iterator &operator -- ()
     {
-        HOMEWORK ASSIGNMENT
+        currentLink = currentLink->prevLink; return *this;
     }
     const_iterator  operator -- (int);
 
@@ -160,8 +160,8 @@ template <typename ElementType>
 const_listIterator<ElementType> const_listIterator<ElementType>::operator -- (int)
 {
     // clone, then increment, return clone
-    listIterator clone(currentLink);
-    HOMEWORK ASSIGNMENT
+   const_listIterator clone(currentLink);
+    currentLink = currentLink->prevLink;
         return clone;
 }
 
@@ -316,7 +316,7 @@ public:
 
     // operations
     bool empty() const { return (endLink == endLink->nextLink); }
-    size_t size() const { return(-1); } //!!
+    size_t size() const { return(m_size); }
     ElementType &   back() { return endLink->prevLink->value; }
     const ElementType &   back() const { return endLink->prevLink->value; }
     ElementType &   front() { return endLink->nextLink->value; }
@@ -352,13 +352,13 @@ protected:
     friend class const_reverse_listIterator<ElementType>;
 
 private:
+    size_t m_size = 0;
+
     void sort();       // disabled - set as private and let unimplemented
     void reverse();    // disabled - set as private and let unimplemented
     void unique();     // disabled - set as private and let unimplemented
 
-
-                       // TO DO: operator= (assignment, not ==)
-                       // LEFT TO BE DONE AS HOMEWORK ASSIGNMENT
+    list<ElementType>& operator= (const list<ElementType> &rhs);
 };
 
 
@@ -373,11 +373,12 @@ list<ElementType>::list()
 template <typename ElementType>
 list<ElementType>::list(const list<ElementType> & x)
 {
+
     endLink = new link<ElementType>();
     endLink->nextLink = endLink;
     endLink->prevLink = endLink;
-    //!! To DO
-    HOMEWORK ASSIGNMENT - use insert(., ., .) to copy the list x into the current list
+    insert(begin(), x.begin(), x.end());
+    m_size = x.m_size;
 }
 
 // add a new value to the front of a list
@@ -390,30 +391,43 @@ void list<ElementType>::push_front(const ElementType & newValue)
 
     endLink->nextLink->prevLink = newLink;
     endLink->nextLink = newLink;
+
+    m_size++;
 }
 
 // remove first element from linked list
 template <typename ElementType>
 void list<ElementType>::pop_front()
 {
-    link<ElementType> * save = endLink->nextLink;
-    endLink->nextLink = save->nextLink;
-    endLink->nextLink->prevLink = endLink;
+    link<ElementType> * save = endLink->prevLink;
+    endLink->prevLink = save->prevLink;
+    endLink->prevLink->nextLink = endLink;
     delete save;
+    m_size--;
 }
 
 // add a new value to the end of a list
 template <typename ElementType>
 void list<ElementType>::push_back(const ElementType & newValue)
 {
-    HOMEWORK ASSIGNMENT
+    link<ElementType> * newLink = new link<ElementType>(newValue);
+    newLink->prevLink = endLink->prevLink;
+    newLink->nextLink = endLink;
+
+    endLink->prevLink->nextLink = newLink;
+    endLink->prevLink = newLink;
+    m_size++;
 }
 
 // remove last element from linked list
 template <typename ElementType>
 void list<ElementType>::pop_back()
 {
-    HOMEWORK ASSIGNMENT
+    link<ElementType> * save = endLink->nextLink;
+    endLink->nextLink = save->nextLink;
+    endLink->nextLink->prevLink = endLink;
+    delete save;
+    m_size--;
 }
 
 
@@ -427,6 +441,7 @@ listIterator<ElementType> list<ElementType>::insert(listIterator<ElementType> be
     newLink->prevLink = current->prevLink;
     current->prevLink = newLink;
     (newLink->prevLink)->nextLink = newLink;
+    m_size++;
     return(iterator(newLink));
 }
 
@@ -435,7 +450,11 @@ void list<ElementType>::insert(iterator before, const_iterator beg2, const_itera
 // insert a copy of a partial list of elements into the middle of a linked list
 {
     for (const_iterator it = beg2; it != end2; ++it)
+    {
         insert(before, *it);
+        m_size++;
+    }
+
 }
 
 template <typename ElementType>
@@ -452,6 +471,7 @@ void list<ElementType>::erase(listIterator<ElementType> start, listIterator<Elem
         link<ElementType> * todelete = start.currentLink;
         ++start;
         delete todelete;
+        m_size--;
     }
 }
 

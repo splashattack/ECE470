@@ -1,0 +1,12 @@
+﻿Build started 12/3/2015 11:09:53 PM.
+     1>Project "C:\GitRepos\ECE470\HWB\HWB\HWB\HWB.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt list_test.cpp
+         list_test.cpp
+     1>c:\gitrepos\ece470\hwb\hwb\hwb\list_test.cpp(164): error C2248: 'list<int>::operator =': cannot access private member declared in class 'list<int>'
+         c:\gitrepos\ece470\hwb\hwb\hwb\list.h(361): note: see declaration of 'list<int>::operator ='
+     1>Done Building Project "C:\GitRepos\ECE470\HWB\HWB\HWB\HWB.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.41

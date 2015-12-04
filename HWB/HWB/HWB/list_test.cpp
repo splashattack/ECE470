@@ -48,7 +48,7 @@ int main() {
 
         cout << "Testing push_back and push_front..." << endl;
         for (i = 0; i<5; i++) {
-            // L.push_back(i); // <-- THIS IS A HW FEATURE
+            L.push_back(i); // <-- THIS IS A HW FEATURE
             L.push_front(i);
         }
         cout << "Each PRINT will also test ++const_iterator..." << endl;
@@ -59,7 +59,7 @@ int main() {
 
 
         cout << "Testing the copy constructor - passing..." << endl;
-        // PRINTVAL(L);  // <-- THIS IS A HW FEATURE
+        PRINTVAL(L);  // <-- THIS IS A HW FEATURE
         cout << "Testing the copy constructor - correct passing..." << endl;
         PRINTREF(L);
         cout << "Done, verify the results" << endl << endl;
@@ -67,7 +67,7 @@ int main() {
 
         cout << "Testing pop_back and pop_front..." << endl;
         for (i = 0; i<2; i++) {
-            // L.pop_back(); // <-- THIS IS A HW FEATURE
+            L.pop_back(); // <-- THIS IS A HW FEATURE
             L.pop_front();
         }
         PRINTREF(L);
@@ -114,13 +114,13 @@ int main() {
         S = L.begin();
         ++S; cout << " " << *S;
         ++S; cout << " " << *S;
-        // --S; cout << " " << *S; // <-- THIS IS A HW FEATURE
+        --S; cout << " " << *S; // <-- THIS IS A HW FEATURE
         cout << endl;
         cout << "Testing pos ++/-- We will print positions: 2nd, 3rd and 2nd ..." << endl;
         S = L.begin();
         S++; cout << " " << *S;
         S++; cout << " " << *S;
-        // S--; cout << " " << *S; // <-- THIS IS A HW FEATURE
+        S--; cout << " " << *S; // <-- THIS IS A HW FEATURE
         cout << endl;
         cout << "Done, verify the results" << endl << endl;
 
@@ -128,11 +128,11 @@ int main() {
         cout << "Testing pre ++ We will print the first position ..." << endl;
         S = L.end(); ++S; cout << " " << *S << endl;
         cout << "Testing pre -- We will print the last position ..." << endl;
-        // S=L.end(); --S; cout << " " << *S << endl; // <-- THIS IS A HW FEATURE
+        S=L.end(); --S; cout << " " << *S << endl; // <-- THIS IS A HW FEATURE
         cout << "Testing pos ++ We will print the first position ..." << endl;
         S = L.end(); S++; cout << " " << *S << endl;
         cout << "Testing pos -- We will print the last position ..." << endl;
-        // S=L.end(); S--; cout << " " << *S << endl; // <-- THIS IS A HW FEATURE
+        S=L.end(); S--; cout << " " << *S << endl; // <-- THIS IS A HW FEATURE
         cout << "Done, verify the results" << endl << endl;
 
 
@@ -140,11 +140,11 @@ int main() {
         cout << "Testing const pre ++ We will print the first position ..." << endl;
         T = L.end(); ++T; cout << " " << *T << endl;
         cout << "Testing const pre -- We will print the last position ..." << endl;
-        // T=L.end(); --T; cout << " " << *T << endl; // <-- THIS IS A HW FEATURE
+        T=L.end(); --T; cout << " " << *T << endl; // <-- THIS IS A HW FEATURE
         cout << "Testing const pos ++ We will print the first position ..." << endl;
         T = L.end(); T++; cout << " " << *T << endl;
         cout << "Testing const pos -- We will print the last position ..." << endl;
-        // T=L.end(); T--; cout << " " << *T << endl; // <-- THIS IS A HW FEATURE
+        T=L.end(); T--; cout << " " << *T << endl; // <-- THIS IS A HW FEATURE
         cout << "Done, verify the results" << endl << endl;
 
 
